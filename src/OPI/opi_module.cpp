@@ -769,7 +769,7 @@ namespace OPI
 
     int Module::minimumOPIVersionRequired()
     {
-        return 0;
+        return OPI_API_VERSION_MAJOR;
     }
 
 }
