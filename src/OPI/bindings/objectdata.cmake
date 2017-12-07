@@ -7,6 +7,8 @@ BIND_CLASS( Population
   FUNCTION getVelocity RETURN Vector3*
   FUNCTION getAcceleration RETURN Vector3*
   FUNCTION getSize RETURN int
+  FUNCTION getBytes RETURN Char*
+  FUNCTION resizeByteArray ARGS int size
   FUNCTION update RETURN ErrorCode ARGS int type
 )
 

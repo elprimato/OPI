@@ -46,6 +46,12 @@ BEGIN_STRUCTURE( Vector3 )
   STRUCTURE_VARIABLE(double z)
 END_STRUCTURE( Vector3 )
 
+COMMENT("This type exists for the bytes")
+BEGIN_STRUCTURE( Char )
+  COMMENT("all there is")
+  STRUCTURE_VARIABLE(char bytes)  
+END_STRUCTURE( Char )
+
 COMMENT("This type represents a pair of two object indices")
 BEGIN_STRUCTURE( IndexPair )
   COMMENT("the first object")
