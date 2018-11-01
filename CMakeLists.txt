@@ -18,7 +18,7 @@ endif()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules")
 
 # find cuda libraries
-option(ENABLE_CUDA_SUPPORT "Enable cuda_support" ON)
+option(ENABLE_CUDA_SUPPORT "Enable cuda_support" OFF)
 if(ENABLE_CUDA_SUPPORT)
   if(WIN32)
 	set(CUDA_64_BIT_DEVICE_CODE OFF)
@@ -36,7 +36,7 @@ if(NOT ENABLE_CUDA_SUPPORT)
 endif()
 
 # find OpenCL
-option(ENABLE_CL_SUPPORT "Enable opencl_support" ON)
+option(ENABLE_CL_SUPPORT "Enable opencl_support" OFF)
 if(ENABLE_CL_SUPPORT)
   find_package( OpenCL )
   if( OpenCL_FOUND )
