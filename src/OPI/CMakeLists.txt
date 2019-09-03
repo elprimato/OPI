@@ -128,10 +128,21 @@ if(NOT WIN32)
     OPI
     dl
   )
-  SET_TARGET_PROPERTIES (OPI OPI-Fortran
-      PROPERTIES BUILD_WITH_INSTALL_RPATH 1
-                 INSTALL_NAME_DIR "@loader_path/../lib"
-  )
+
+  if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    SET_TARGET_PROPERTIES (OPI OPI-Fortran PROPERTIES
+    BUILD_WITH_INSTALL_RPATH 1
+    INSTALL_NAME_DIR "@executable_path/lib")
+  else()
+    set_target_properties(OPI OPI-Fortran PROPERTIES
+      INSTALL_RPATH "$ORIGIN/lib:$ORIGIN/"
+      INSTALL_RPATH_USE_LINK_PATH TRUE)
+  endif()
+
+  # SET_TARGET_PROPERTIES (OPI OPI-Fortran
+  #     PROPERTIES BUILD_WITH_INSTALL_RPATH 1
+  #                INSTALL_NAME_DIR "@loader_path/../lib"
+  # )
 endif()
 
 # install library
